@@ -1,0 +1,8 @@
+.*/*
+*.pyc
+
+# Do not upload raw .csd (computational sequence) files
+data/*
+
+# Do not upload the entire data SDK
+CMU-MultimodalSDK/*
