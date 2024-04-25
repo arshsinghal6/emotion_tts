@@ -2,7 +2,7 @@ import os
 
 import torch
 from torch.utils.data import Dataset
-
+from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 
 class ESDDataset(Dataset):
@@ -29,3 +29,6 @@ class ESDDataset(Dataset):
 
                             row = [audio_file_path, transcription, emotion_class.strip()]
                             self.df.loc[len(self.df)] = row
+
+        self.emotion_label_encoder = LabelEncoder()
+        self.df['emotion_class'] = self.emotion_label_encoder.fit_transform(self.df['enotion_class'])
