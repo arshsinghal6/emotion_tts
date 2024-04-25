@@ -31,4 +31,4 @@ class ESDDataset(Dataset):
                             self.df.loc[len(self.df)] = row
 
         self.emotion_label_encoder = LabelEncoder()
-        self.df['emotion_class'] = self.emotion_label_encoder.fit_transform(self.df['enotion_class'])
+        self.df['emotion_class'] = self.emotion_label_encoder.fit_transform(self.df['emotion_class'])
