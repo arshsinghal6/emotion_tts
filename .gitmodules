@@ -1,0 +1,3 @@
+[submodule "DeepLearningExamples"]
+	path = DeepLearningExamples
+	url = https://github.com/ajaymoturi12/emotion-tts-tacotron-fork.git
