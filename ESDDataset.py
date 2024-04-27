@@ -25,9 +25,10 @@ class ESDDataset(Dataset):
                     with open(os.path.join(root, file)) as f:
                         for line in f.readlines():
                             audio_file_path, transcription, emotion_class = line.split('\t')
-                            audio_file_path = os.path.join(root, audio_file_path) + '.wav'
+                            emotion_class = emotion_class.strip()
+                            audio_file_path = os.path.join(root, emotion_class, audio_file_path) + '.wav'
 
-                            row = [audio_file_path, transcription, emotion_class.strip()]
+                            row = [audio_file_path, transcription, emotion_class]
                             self.df.loc[len(self.df)] = row
 
         self.emotion_label_encoder = LabelEncoder()
