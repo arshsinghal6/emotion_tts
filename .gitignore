@@ -3,8 +3,9 @@
 .DS_Store
 
 
-# Do not upload raw .csd (computational sequence) files
+# Do not upload raw .csd (computational sequence) files or checkpoint files
 data/*
+models/*
 
 # Do not upload the entire data SDK
 CMU-MultimodalSDK/*

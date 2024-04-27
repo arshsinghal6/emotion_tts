@@ -107,10 +107,6 @@ def validate(model, criterion, valset, epoch, batch_iter, batch_size,
         val_loss = val_loss/num_iters
         val_items_per_sec = val_items_per_sec/num_iters
 
-
-        # print(step=(epoch,), data={'val_loss': val_loss})
-        # print(step=(epoch,), data={'val_items_per_sec': val_items_per_sec})
-
         return val_loss, val_items_per_sec
     
 def train(output_dir: str):
@@ -151,9 +147,7 @@ def train(output_dir: str):
             reduced_num_items = num_items.item()
             if np.isnan(reduced_loss):
                 raise Exception("loss is NaN")
-            
-
-            # print(f"step={(epoch,i)}", f"data='train_loss':{reduced_loss}")
+        
             epoch_loss += loss
             num_iters += 1
 
@@ -174,9 +168,6 @@ def train(output_dir: str):
                 optimizer.step()
 
             model.zero_grad(set_to_none=True)
-            
-            # print(f"step={(epoch,i)}", f"data=train_loss: {reduced_loss}")
-            # print(step=(epoch,), data={'train_epoch_time': epoch_time})
 
             if i % log_len == 0:
                 writer.add_scalar("Step Loss Train", loss, i)
@@ -193,12 +184,9 @@ def train(output_dir: str):
             # if (epoch % args.epochs_per_checkpoint == 0) and (args.bench_class == "" or args.bench_class == "train"):
             #     save_checkpoint(model, optimizer, scaler, epoch, model_config,
             #                     args.output, args.model_name, local_rank, world_size)
-                
-            # print(f"step=tuple({(epoch,i)})", f"data=val_loss: {val_loss}")
-            # print(f"step=tuple({(epoch,i)})", f"data=train_loss:{reduced_loss}")
 
-    writer.add_scalar("Epoch Loss Train", epoch_loss, epoch+1)
-    epoch_loss = 0
+        writer.add_scalar("Epoch Loss Train", epoch_loss, epoch+1)
+        epoch_loss = 0
 
 MODEL_NAME = 'Tacotron2'
 OUTPUT_DIR = './models/'
