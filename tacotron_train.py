@@ -227,7 +227,7 @@ def train():
             #                                     iteration, args.batch_size,
             #                                     world_size, collate_fn,
             #                                     distributed_run, args.bench_class=="perf-train",
-            #                                     batch_to_gpu,
+            #                                     batch_to_gpu, 
             #                                     args.amp)
 
             # if (epoch % args.epochs_per_checkpoint == 0) and (args.bench_class == "" or args.bench_class == "train"):
