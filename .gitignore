@@ -1,5 +1,7 @@
 .*/*
 *.pyc
+.DS_Store
+
 
 # Do not upload raw .csd (computational sequence) files
 data/*
