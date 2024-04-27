@@ -5,20 +5,20 @@ import torch
 import numpy as np
 
 MODEL_NAME = 'Tacotron2'
-CPU_RUN = True
+CPU_RUN = False
 
 from ESDDataset import ESDDataset
 
 d = ESDDataset(dataset_dir='./data/Emotion Speech Dataset')
 
-d.df["mel_text_pair"] = d.df['audio_file_path']+'|'+d.df['transcription']+' '+ d.df['emotion_class'].apply(lambda x: str(x))
+# d.df["mel_text_pair"] = d.df['audio_file_path']+'|'+d.df['transcription']+' '+ d.df['emotion_class'].apply(lambda x: str(x))
 
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split
 
-train, test = train_test_split(d.df, test_size=0.2)
+# train, test = train_test_split(d.df, test_size=0.2)
 
-train.to_csv(path_or_buf='./data/train_mel_text_pairs.txt', columns=['mel_text_pair'], index=False, header=False, quoting=csv.QUOTE_NONE, escapechar='\\')
-test.to_csv(path_or_buf='./data/test_mel_text_pairs.txt', columns=['mel_text_pair'], index=False, header=False, quoting=csv.QUOTE_NONE, escapechar='\\')
+# train.to_csv(path_or_buf='./data/train_mel_text_pairs.txt', columns=['mel_text_pair'], index=False, header=False, quoting=csv.QUOTE_NONE, escapechar='\\')
+# test.to_csv(path_or_buf='./data/test_mel_text_pairs.txt', columns=['mel_text_pair'], index=False, header=False, quoting=csv.QUOTE_NONE, escapechar='\\')
 
 import argparse
 from train import parse_args
@@ -32,8 +32,8 @@ args = parser.parse_args('--epochs 2 -lr 1e-4 -bs 2 -m Tacotron2 -o ./ --samplin
 
 from DeepLearningExamples.PyTorch.SpeechSynthesis.Tacotron2.tacotron2.data_function import TextMelLoader
 
-train_dataset = TextMelLoader(dataset_path='', audiopaths_and_text='./data/train_mel_text_pairs.txt', args=args)
-val_dataset = TextMelLoader(dataset_path='', audiopaths_and_text='./data/test_mel_text_pairs.txt', args=args)
+train_dataset = TextMelLoader(dataset_path='', audiopaths_and_text='./mel_text_pairs/train_mel_text_pairs.txt', args=args)
+val_dataset = TextMelLoader(dataset_path='', audiopaths_and_text='./mel_text_pairs/test_mel_text_pairs.txt', args=args)
 
 from torch.utils.data import DataLoader
 import data_functions
