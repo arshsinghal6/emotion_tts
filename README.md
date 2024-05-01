@@ -16,6 +16,6 @@ https://github.com/arshsinghal6/emotion_tts/assets/32253406/bdd116e6-0f27-428c-b
 Our work related to our Emotion Embedding approach is in the respective branch: https://github.com/arshsinghal6/emotion_tts/tree/EmotionEmbedding. The EmotionSymbol approach builds off
 of the EmotionEmbedding work on the: https://github.com/arshsinghal6/emotion_tts/tree/EmotionSymbol branch.
 
-Our work related our second main approach, Emotion Transfer, is on the branch of the same name: https://github.com/arshsinghal6/emotion_tts/tree/EmotionTransfer.
+Our work related to our second main approach, Emotion Transfer, is on the branch of the same name: https://github.com/arshsinghal6/emotion_tts/tree/EmotionTransfer.
 
 
