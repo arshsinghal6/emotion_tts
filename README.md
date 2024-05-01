@@ -1,6 +1,6 @@
 # emotion_tts: https://github.com/arshsinghal6/emotion_tts
-Deep learning model to add emotion to TTS. 
-Here is a demo of our model
+Deep learning models to add emotion to TTS. 
+Here is a demo of our Emotion Transfer model
 
 ground truth: 
 
